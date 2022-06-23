@@ -7,7 +7,7 @@ const dist = isProd ? 'dist' : "public"
 const builderParams = {
     entryPoints: ["src/index.js"],
     bundle: true,
-    loader: {".js": "jsx", ".css": "css"},
+    loader: {".js": "jsx"},
     outfile: `${dist}/index.js`,
     plugins: [
         sassPlugin({

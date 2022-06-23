@@ -11,8 +11,7 @@
     "esbuild": "^0.14.47",
     "esbuild-sass-plugin": "^2.2.6",
     "postcss": "^8.4.14",
-    "postcss-modules": "^4.3.1",
-    "rimraf": "^3.0.2"
+    "postcss-modules": "^4.3.1"
   },
   "dependencies": {
     "react": "^18.2.0",
