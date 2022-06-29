@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./index.module.scss";
 
-const App = () => {
+const App : React.FC = () => {
   return <div className={s.app}>App</div>;
 };
 

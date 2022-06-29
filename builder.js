@@ -5,9 +5,9 @@ const isProd = process.env.NODE_ENV === "production"
 const dist = isProd ? 'build' : "public"
 
 const builderParams = {
-    entryPoints: ["src/index.js"],
+    entryPoints: ["src/index.tsx"],
     bundle: true,
-    loader: {".js": "jsx"},
+    loader: {".ts": "tsx"},
     outfile: `${dist}/index.js`,
     plugins: [
         sassPlugin({
