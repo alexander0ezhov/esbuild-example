@@ -2,7 +2,7 @@ const fs = require('fs')
 const {sassPlugin, postcssModules} = require("esbuild-sass-plugin");
 const esbuild = require("esbuild")
 const isProd = process.env.NODE_ENV === "production"
-const dist = isProd ? 'dist' : "public"
+const dist = isProd ? 'build' : "public"
 
 const builderParams = {
     entryPoints: ["src/index.js"],
@@ -19,7 +19,7 @@ const builderParams = {
 const runProd = async () => {
     await fs.rmSync(dist, {recursive: true, force: true});
     await fs.mkdirSync(dist)
-    await fs.copyFileSync('public/index.html', "dist/index.html")
+    await fs.copyFileSync('public/index.html', `${dist}/index.html`)
     await esbuild.build(builderParams)
 }
 
