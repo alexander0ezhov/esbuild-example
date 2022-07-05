@@ -28,7 +28,7 @@ const runDev = async () => {
         .serve(
             {
                 servedir: dist,
-                port: 3000,
+                port: 3200,
             },
             builderParams
         )

@@ -1,15 +1,35 @@
 {
-  "name": "esbuild-sample",
+  "name": "electron-esbuild-sample",
   "version": "1.0.0",
-  "main": "index.ts",
+  "main": "electron.js",
+  "productName": "electron-esbuild-sample",
   "license": "MIT",
   "scripts": {
     "start": "node ./builder.js",
-    "build": "NODE_ENV=production node ./builder.js"
+    "build": "NODE_ENV=production node ./builder.js",
+    "electron": "ELECTRON_START_URL=http://localhost:3200 electron .",
+    "homepage": "./",
+    "dist": "rm -rf dist && mkdir dist && cp electron.js dist && cp build/* dist",
+    "package": "electron-builder build --mac --win -c.extraMetadata.main=dist/electron.js --publish never",
+    "build-electron": "yarn build && yarn dist && yarn package"
+  },
+  "build": {
+    "files": [
+      "dist/**/*",
+      "node_modules/**/*"
+    ],
+    "publish": {
+      "provider": "github",
+      "repo": "electron-esbuild-sample",
+      "owner": "alexander0ezhov"
+    }
   },
   "devDependencies": {
     "@types/react": "^18.0.14",
     "@types/react-dom": "^18.0.5",
+    "concurrently": "^7.2.2",
+    "electron": "^19.0.6",
+    "electron-builder": "^23.1.0",
     "esbuild": "^0.14.47",
     "esbuild-sass-plugin": "^2.2.6",
     "postcss": "^8.4.14",
